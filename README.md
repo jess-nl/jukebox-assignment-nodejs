@@ -5,9 +5,10 @@ The GET endpoint can filter by desired jukebox model name.
 
 ## Start application
 
-1. `npm install`
-2. `npm run start`
-3. Access to Postman collection in `docs/Jukebox.postman_collection.json` to ping GET endpoint.
+1. Ensure the **.env** variables are provided
+2. `npm install`
+3. `npm run start`
+4. Access to **Postman** collection in `docs/Jukebox.postman_collection.json` to ping GET endpoint
 
 ## Author
 
