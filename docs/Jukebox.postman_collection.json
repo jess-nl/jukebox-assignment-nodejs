@@ -1,0 +1,40 @@
+{
+	"info": {
+		"_postman_id": "77ed1926-e615-482a-a949-f9cf3c7e30a8",
+		"name": "Jukebox",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET Jukeboxes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/jukeboxes?settingId=ae209984-dc64-406b-bc95-3b6153cdbaa6&model=angelina",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"jukeboxes"
+					],
+					"query": [
+						{
+							"key": "settingId",
+							"value": "ae209984-dc64-406b-bc95-3b6153cdbaa6"
+						},
+						{
+							"key": "model",
+							"value": "angelina"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
