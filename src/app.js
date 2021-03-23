@@ -14,8 +14,10 @@ app.listen(port, () => {
 });
 
 app.get(`/api/v1/jukeboxes`, (req, res) => {
-  let selectedSettingId = req.query.settingId;
-  let selectedModel = req.query.model;
+  const selectedSettingId = req.query.settingId;
+  const selectedModel = req.query.model;
+  const page = parseInt(req.query.page);
+  const limit = parseInt(req.query.limit);
 
   if (!selectedSettingId) {
     res.send([]);
@@ -28,12 +30,12 @@ app.get(`/api/v1/jukeboxes`, (req, res) => {
     ])
     .then(
       axios.spread((settingsData, jukeboxesData) => {
-        let settings = settingsData.data["settings"];
-        let jukeboxes = jukeboxesData.data;
+        const settings = settingsData.data["settings"];
+        const jukeboxes = jukeboxesData.data;
 
         /* Array of requirements from selected setting ID */
         let setting = settings.filter((x) => x.id === selectedSettingId);
-        let settingRequirements = setting[0]["requires"];
+        const settingRequirements = setting[0]["requires"];
 
         /* Find jukebox names (features for each jukebox) */
         let featuresAvailable = jukeboxes.map((x) =>
@@ -46,7 +48,9 @@ app.get(`/api/v1/jukeboxes`, (req, res) => {
             featuresAvailable,
             jukeboxes,
             selectedModel,
-            settingRequirements
+            settingRequirements,
+            page,
+            limit
           )
         );
       })

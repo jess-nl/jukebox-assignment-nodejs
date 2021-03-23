@@ -1,9 +1,13 @@
+import pagination from "./pagination.js";
+
 /* Filter by model name */
 const filterByModel = (
   featuresAvailable,
   jukeboxes,
   selectedModel,
-  settingRequirements
+  settingRequirements,
+  page,
+  limit
 ) => {
   let match = [];
 
@@ -31,7 +35,8 @@ const filterByModel = (
     }
   }
 
-  return match;
+  /* Specify at what index to start the page and the page size */
+  return pagination(match, page, limit);
 };
 
 export default filterByModel;

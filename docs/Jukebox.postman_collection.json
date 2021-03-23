@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "77ed1926-e615-482a-a949-f9cf3c7e30a8",
+		"_postman_id": "3112890e-cb69-4ee9-8fb6-c2447cdb6a0b",
 		"name": "Jukebox",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -11,7 +11,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3000/api/v1/jukeboxes?settingId=ae209984-dc64-406b-bc95-3b6153cdbaa6&model=angelina",
+					"raw": "http://localhost:3000/api/v1/jukeboxes?settingId=ae209984-dc64-406b-bc95-3b6153cdbaa6&page=1&limit=4",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -29,7 +29,16 @@
 						},
 						{
 							"key": "model",
-							"value": "angelina"
+							"value": "angelina",
+							"disabled": true
+						},
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "4"
 						}
 					]
 				}
