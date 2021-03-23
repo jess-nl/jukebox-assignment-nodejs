@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "3112890e-cb69-4ee9-8fb6-c2447cdb6a0b",
+		"_postman_id": "c0e8dc8e-acf8-42bc-a1a1-ef506ca99cf0",
 		"name": "Jukebox",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -11,7 +11,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3000/api/v1/jukeboxes?settingId=ae209984-dc64-406b-bc95-3b6153cdbaa6&page=1&limit=4",
+					"raw": "http://localhost:3000/api/v1/jukeboxes?settingId=2321763c-8e06-4a31-873d-0b5dac2436da&page=1&limit=4&strict=0",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -25,20 +25,29 @@
 					"query": [
 						{
 							"key": "settingId",
-							"value": "ae209984-dc64-406b-bc95-3b6153cdbaa6"
+							"value": "2321763c-8e06-4a31-873d-0b5dac2436da",
+							"description": "Setting by id"
 						},
 						{
 							"key": "model",
 							"value": "angelina",
+							"description": "Jukebox model",
 							"disabled": true
 						},
 						{
 							"key": "page",
-							"value": "1"
+							"value": "1",
+							"description": "Page index"
 						},
 						{
 							"key": "limit",
-							"value": "4"
+							"value": "4",
+							"description": "Page size"
+						},
+						{
+							"key": "strict",
+							"value": "0",
+							"description": "1 displays strict matches. Any other number skips this param."
 						}
 					]
 				}

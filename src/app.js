@@ -7,7 +7,8 @@ const port = 3000;
 const axios = require("axios");
 require("dotenv/config");
 
-import filterByModel from "./utils/filterByModel.js";
+import filterJukes from "./utils/filterJukes.js";
+import strictFilter from "./utils/strictFilter.js";
 
 app.listen(port, () => {
   console.log(`Listening at ${port}`);
@@ -18,6 +19,7 @@ app.get(`/api/v1/jukeboxes`, (req, res) => {
   const selectedModel = req.query.model;
   const page = parseInt(req.query.page);
   const limit = parseInt(req.query.limit);
+  const strict = parseInt(req.query.strict);
 
   if (!selectedSettingId) {
     res.send([]);
@@ -42,17 +44,31 @@ app.get(`/api/v1/jukeboxes`, (req, res) => {
           x.components ? x.components.map((y) => y.name) : null
         );
 
-        /* Filter by model name */
-        res.send(
-          filterByModel(
-            featuresAvailable,
-            jukeboxes,
-            selectedModel,
-            settingRequirements,
-            page,
-            limit
-          )
-        );
+        /* 1 displays strict matches. Any other number skips this param. */
+        if (strict === 1) {
+          /* Strict match: list jukeboxes that has *all* features in setting requirements */
+          res.send(
+            strictFilter(
+              featuresAvailable,
+              jukeboxes,
+              settingRequirements,
+              page,
+              limit
+            )
+          );
+        } else {
+          /* Filter by jukeboxes */
+          res.send(
+            filterJukes(
+              featuresAvailable,
+              jukeboxes,
+              selectedModel,
+              settingRequirements,
+              page,
+              limit
+            )
+          );
+        }
       })
     )
     .catch((error) => console.log(error));

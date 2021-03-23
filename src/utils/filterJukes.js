@@ -1,7 +1,6 @@
 import pagination from "./pagination.js";
 
-/* Filter by model name */
-const filterByModel = (
+const filterJukes = (
   featuresAvailable,
   jukeboxes,
   selectedModel,
@@ -15,6 +14,7 @@ const filterByModel = (
     let featuresPerJuke = featuresAvailable[i];
     let model = jukeboxes[i].model;
 
+    /* Filter by model */
     if (
       typeof selectedModel !== "undefined" &&
       selectedModel &&
@@ -25,6 +25,7 @@ const filterByModel = (
       match.push(jukeboxes[i]);
     }
 
+    /* If no model is selected, display all matches */
     if (
       (typeof selectedModel === "undefined" ||
         !selectedModel ||
@@ -39,4 +40,4 @@ const filterByModel = (
   return pagination(match, page, limit);
 };
 
-export default filterByModel;
+export default filterJukes;
